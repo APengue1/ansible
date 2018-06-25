@@ -1,0 +1,28 @@
+---
+- name: Download Docker for MacOSX
+  get_url:
+    url: https://download.docker.com/mac/stable/Docker.dmg
+    dest: ~/Downloads/Docker.dmg
+
+- name: Mount Docker.dmg
+  shell: hdiutil attach ~/Downloads/Docker.dmg
+
+- name: Install Docker
+  shell: cp -r /Volumes/Docker/Docker.app ~/Applications
+  become:
+
+- name: Verify Docker is Installed
+  stat:
+    path: ~/Applications/Docker.app/
+  register: docker_app
+- fail:
+    msg: "Directory ~/Applications/Docker.app/ does not exist"
+  when: docker_app.stat.exists == False
+
+- name: Unmount Docker.dmg
+  shell: hdiutil detach /Volumes/Docker/
+
+- name: Remove Docker Download
+  file:
+    path: ~/Downloads/Docker.dmg
+    state: absent 
