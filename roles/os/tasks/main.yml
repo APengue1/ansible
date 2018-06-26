@@ -1,0 +1,12 @@
+---
+- name: Set isOSX
+  set_fact:
+    isOSX: True
+    isUbuntu: False
+  when: ansible_distribution == 'MacOSX'
+
+- name: Set isUbuntu
+  set_fact:
+    isUbuntu: True
+    isOSX: False
+  when: ansible_distribution == 'Ubuntu'
