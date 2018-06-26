@@ -1,0 +1,15 @@
+---
+- name: Set ~/.bash_profile as file
+  set_fact:
+    bash_profile_file: ~/.bash_profile
+  when: isOSX
+
+- name: Set ~/.profile as file
+  set_fact:
+    bash_profile_file: ~/.profile
+  when: isUbuntu
+
+- name: Create bash profile file
+  file:
+    path: "{{ bash_profile_file }}"
+    state: touch
