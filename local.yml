@@ -4,3 +4,4 @@
   roles:
     - {role: docker, tags: docker}
     - {role: docker_containers, tags: docker_containers}
+    - {role: nvm, tags: nvm}
