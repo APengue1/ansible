@@ -2,5 +2,5 @@
 - hosts: all
   connection: local
   roles:
-    - docker
-    - docker_containers
+    - {role: docker, tags: docker}
+    - {role: docker_containers, tags: docker_containers}
