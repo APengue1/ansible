@@ -1,0 +1,13 @@
+---
+- name: Get nvm installation script
+  get_url:
+    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh
+    dest: ~/Downloads/nvm_install.sh
+
+- name: Run nvm installation script
+  shell: bash ~/Downloads/nvm_install.sh
+
+- name: Delete nvm installation script
+  file:
+    path: ~/Downloads/nvm_install.sh
+    state: absent
