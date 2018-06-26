@@ -1,0 +1,8 @@
+---
+- name: Check if nvm already installed
+  stat:
+    path: ~/.nvm
+  register: nvm
+
+- include: install.yml
+  when: nvm.stat.exists == False
