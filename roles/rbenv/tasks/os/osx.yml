@@ -1,0 +1,3 @@
+---
+- name: Install rbenv
+  shell: brew install rbenv
