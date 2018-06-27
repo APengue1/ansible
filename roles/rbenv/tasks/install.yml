@@ -1,0 +1,10 @@
+---
+- include: os/osx.yml
+  when: isOSX
+
+- name: Initialize rbenv
+  shell: rbenv init -
+
+- name: Add rbenv to bash profile file
+  shell: echo 'eval "$(rbenv init -)"' >> {{ bash_profile_file }}
+  when: isOSX or isUbuntu

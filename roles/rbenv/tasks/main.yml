@@ -1,0 +1,8 @@
+---
+- name: Check for existing rbenv installation
+  shell: rbenv -h
+  register: rbenv_command
+
+- name: Install rbenv
+  include: install.yml
+  when: rbenv_command.rc != 0
