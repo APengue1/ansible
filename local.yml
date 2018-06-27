@@ -4,6 +4,7 @@
   roles:
     - {role: os, tags: os}
     - {role: bash, tags: bash}
+    - {role: profile, tags: profile}
     - {role: brew, tags: brew}
     - {role: nvm, tags: nvm}
     - {role: rbenv, tags: rbenv}

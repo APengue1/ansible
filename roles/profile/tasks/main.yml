@@ -1,0 +1,14 @@
+---
+- name: Copy bash aliases file contents
+  copy:
+    backup: yes
+    force: yes
+    src: .bash_aliases
+    dest: ~/.bash_aliases
+    
+- name: Copy bash profile file contents
+  copy:
+    backup: yes
+    force: yes
+    src: .bash_profile
+    dest: "{{ bash_profile_file }}"
