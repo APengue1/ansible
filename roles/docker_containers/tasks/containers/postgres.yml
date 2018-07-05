@@ -16,6 +16,7 @@
     docker run --name postgres \
     -e "POSTGRES_PASSWORD={{ postgres_password }}" \
     --network postgres \
+    -p 5432:5432 \
     -d postgres
   when: docker_container_ls.stdout is search('postgres') == False
 
