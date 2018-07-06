@@ -1,0 +1,7 @@
+---
+- name: Copy .vimrc file contents
+  copy:
+    backup: yes
+    force: yes
+    src: .vimrc
+    dest: ~/.vimrc

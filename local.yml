@@ -2,11 +2,12 @@
 - hosts: all
   connection: local
   roles:
-    - {role: os, tags: os}
-    - {role: bash, tags: bash}
-    - {role: profile, tags: profile}
-    - {role: brew, tags: brew}
-    - {role: nvm, tags: nvm}
-    - {role: rbenv, tags: rbenv}
-    - {role: docker, tags: docker}
+    - {role: os,                tags: os}
+    - {role: bash,              tags: bash}
+    - {role: profile,           tags: profile}
+    - {role: vim,               tags: vim}
+    - {role: brew,              tags: brew}
+    - {role: nvm,               tags: nvm}
+    - {role: rbenv,             tags: rbenv}
+    - {role: docker,            tags: docker}
     - {role: docker_containers, tags: docker_containers}
