@@ -1,0 +1,11 @@
+---
+- name: Create Redis Container
+  shell: docker run --name redis -p 6379:6379 -d redis
+  when: docker_container_ls.stdout is search('redis') == False
+
+- name: Create redis-cli bash alias
+  lineinfile:
+    path: ~/.bash_aliases
+    create: yes
+    line: alias redis-cli="docker run -it --link redis:redis --rm redis redis-cli -h redis -p 6379"
+    state: present
