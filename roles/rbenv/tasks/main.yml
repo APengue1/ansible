@@ -6,3 +6,10 @@
 - name: Install rbenv
   include: install.yml
   when: rbenv_command.rc != 0
+
+- name: Create bundle exec bash alias
+  lineinfile:
+    path: ~/.bash_aliases
+    create: yes
+    line: alias be="bundle exec"
+    state: present
