@@ -1,2 +1,7 @@
 ---
+- name: Check for Containers
+  shell: docker container ls
+  register: docker_container_ls
+
 - include: containers/postgres.yml
+- include: containers/redis.yml

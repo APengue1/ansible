@@ -3,10 +3,6 @@
   shell: docker network ls
   register: docker_network_ls
 
-- name: Check for Containers
-  shell: docker container ls
-  register: docker_container_ls
-
 - name: Create Docker Network
   shell: docker network create postgres
   when: docker_network_ls.stdout is search('postgres') == False
